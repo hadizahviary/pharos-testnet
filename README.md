@@ -10,6 +10,8 @@ Pharos testnet (Incentives) bot -- an automations python script to interact with
 -  pip (Python package installer)
 
 ### Features
+-  Multithread support: Run your bot faster (10 account with default setting completely in 5 minutes)
+
 -  Faucet: Support auto claiming `official faucet`
 
 -  Captcha Solver: Completing `captcha` for faucet
