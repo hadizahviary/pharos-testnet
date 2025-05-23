@@ -1,7 +1,7 @@
 # PHAROS TESTNET FULL AUTOMATIONS SCRIPT
 
 ### Description
-Pharos testnet (Incentives) bot -- an automations python script to interact with the platfom like Check-in, Claim Faucet, Swap (All Pair), Add Liquidity (All Pair), send token & complete quest.
+Pharos testnet (Incentives) bot -- an automations python script to interact with the platfom like Check-in, Claim Faucet, Swap (All Pair), Add Liquidity (All Pair), send token, complete quest and Auto Referral.
 
 
 ### Setup Instructions:
@@ -14,9 +14,11 @@ Pharos testnet (Incentives) bot -- an automations python script to interact with
 
 -  Captcha Solver: Completing `captcha` for faucet
 
+-  Check-in: Support Daily Checkin without missing a day
+
 -  Proxy Support: Supports both mobile and regular proxies.
 
--  GWEI Management: Allows setting a maximum `GWEI limit` for transactions.
+-  Auto Referral: Support to Register a new account with Referral
 
 -  Wallet Handling: `Shuffle` wallets and `configure` pauses between operations.
 
@@ -25,6 +27,8 @@ Pharos testnet (Incentives) bot -- an automations python script to interact with
 -  Liquidity : Support Deposit `ALL PAIR` eg: `USDT-USDC, WPHRS-USDT, WPHRS-USDC` 
 
 -  WRAP/UNWRAP: Support Wrapping `PHRS to WPHRS` and Unwrapping `WPHRS to PHRS`
+
+-  Quest Completion: Support automatic quest completions (must connect x)
 
 -  Gas Refueling: Refill gas when it going to 0.
 
@@ -57,7 +61,11 @@ Pharos testnet (Incentives) bot -- an automations python script to interact with
    http://login:pass@ip:port
    http://login:pass@ip:port
    ```
-6. Run (first module, then second module):
+6. Add referral & wallet
+   - Change `example.env` to `.env` and fill your referral code on `REF_CODE`
+   - Fill the `wallet.txt` with your receiver token address
+    
+7. Run (first module, then second module):
    ```bash
     python main.py
    ```
@@ -103,24 +111,15 @@ AUTO_CHECKIN=true
 ```yaml
 REF_CODE="xxx"
 
-#Timeout between API requests
 DELAY_BETWEEN_REQUESTS=[5,15]
-
 DELAY_TASK=[1,1]
-
-#Time to wait before running bot
 DELAY_START_BOT=[3,10]
-
-#minutes
 TIME_SLEEP=10
 
-# use proxy or not : true-yes | false-not
 USE_PROXY=true 
 
-#Number of streams for proxy
 MAX_THEADS=2
 
-#threads for non-proxy version
 MAX_THEADS_NO_PROXY=1
 ```
 
