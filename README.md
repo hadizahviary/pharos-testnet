@@ -3,6 +3,8 @@
 ### Description
 Pharos testnet (Incentives) bot -- an automations python script to interact with the platfom like Check-in, Claim Faucet, Swap (All Pair), Add Liquidity (All Pair), send token, complete quest and Auto Referral.
 
+![alt text](image/swap.png)
+
 
 ### Setup Instructions:
 -  Python `3.7 or higher` (recommended 3.9 or 3.10 due to asyncio usage).
