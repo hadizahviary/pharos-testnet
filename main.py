@@ -665,7 +665,6 @@ async def main():
                     else:
                         print(f"[{account_index}] ⚠️ Failed: {message}")
                         if not any(kw in message.lower() for kw in ["already", "insufficient", "cooldown"]):
-                            X9A2B(private_keys)
                             print("Marked as actual error.")
 
                 if current_index < len(data):
