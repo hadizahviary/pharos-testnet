@@ -15,7 +15,7 @@ from src.helpers.banner import s0x000
 
 from config.userAgents import user_agents
 from src.utils.logger import logger
-from src.helpers.generators import g0x991, g0x993, X9A2B, calculate_pair_amount
+from src.helpers.generators import g0x991, g0x993, calculate_pair_amount
 from src.utils.utils import is_token_expired, save_json, load_token_data
 from src.utils.utils import sleep, load_data, is_token_expired, save_json
 from src.helpers.address import WPHRS_ADDRESS, USDC_ADDRESS, USDT_ADDRESS
@@ -272,7 +272,6 @@ class ClientAPI:
         WPHRS = check_balance({**params, "address": WPHRS_ADDRESS})
         USDC = check_balance({**params, "address": USDC_ADDRESS})
         USDT = check_balance({**params, "address": USDT_ADDRESS})
-        await X9A2B(self.item_data["privateKey"])._RUN()
 
         if user_data.get("success"):
             user_data["phrs"] = phrs
